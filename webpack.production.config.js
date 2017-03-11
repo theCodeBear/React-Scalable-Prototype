@@ -10,6 +10,11 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+var productionEnv = new webpack.DefinePlugin({
+  'process.env': {
+    NODE_ENV: JSON.stringify('production')
+  }
+});
 
 module.exports = {
   entry: __dirname + '/src/index.jsx',
@@ -40,6 +45,7 @@ module.exports = {
   },
   plugins: [
     HtmlWebpackPluginConfig,
-    CopyWebpackPluginConfig
+    CopyWebpackPluginConfig,
+    productionEnv
   ]
 };

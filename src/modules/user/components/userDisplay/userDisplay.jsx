@@ -27,4 +27,9 @@ const UserDisplay = (props) => {
 };
 
 
+UserDisplay.propTypes = {
+  users: React.PropTypes.array.isRequired
+};
+
+
 export default UserDisplay;
