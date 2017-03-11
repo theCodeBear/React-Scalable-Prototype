@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "devbuild": "webpack -d --watch",
     "prodbuild": "webpack --config ./webpack.production.config.js",
-    "start": "pushd ./src/public; python -m SimpleHTTPServer; popd;",
+    "start": "pushd ./src/public; python -m SimpleHTTPServer 9999; popd;",
     "testprod": "pushd ./dist/; python -m SimpleHTTPServer 10000; popd;"
   },
   "repository": {

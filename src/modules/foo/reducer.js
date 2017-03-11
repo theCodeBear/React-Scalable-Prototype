@@ -1,12 +1,15 @@
 'use strict';
 
-const UPDATE_FOO = 'UPDATE_FOO';
+import * as t from './actionTypes';
+
+
+
 
 const fooReducer = (currentState = {}, action) => {
   let nextState;
 
   switch(action.type) {
-    case UPDATE_FOO:
+    case t.UPDATE_FOO:
       nextState =  action.foo;
       return nextState;
     default:
@@ -16,20 +19,3 @@ const fooReducer = (currentState = {}, action) => {
 
 export default fooReducer;
 
-
-
-
-// ACTION CREATORS
-
-const updateFoo = (foo) => {
-  return {
-    type: UPDATE_FOO,
-    name: foo
-  };
-};
-
-
-
-export {
-  updateFoo
-};

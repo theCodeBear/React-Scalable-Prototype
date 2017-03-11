@@ -1,7 +1,7 @@
 'use strict';
 
 // import sub-reducers here:
-import fooReducer from './fooReducer';
+import fooReducer from '../modules/foo/reducer';
 
 
 const initialState = {
