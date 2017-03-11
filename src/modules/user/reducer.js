@@ -3,19 +3,17 @@
 import * as t from './actionTypes';
 
 
-
-
-const fooReducer = (currentState = {}, action) => {
+const userReducer = (currentState = {}, action) => {
   let nextState;
 
   switch(action.type) {
-    case t.UPDATE_FOO:
-      nextState =  action.foo;
+    case t.INIT:
+      nextState = action.users;
       return nextState;
     default:
       return currentState;
   }
 };
 
-export default fooReducer;
+export default userReducer;
 

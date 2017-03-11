@@ -1,23 +1,39 @@
 'use strict';
+
 import React from 'react';
 import {render} from 'react-dom';
 import Navigator from '../../commonComponents/navigator/navigator.jsx';
 import store from '../../js/store';
 import styles from './home.css';
-//import { FooDisplay } from '../../modules/foo';
-import * as foo from '../../modules/foo';
-const FooDisplay = foo.components.FooDisplay;
+import { safe } from '../../js/util';
+import * as user from '../../modules/user';
+const { UserDisplay } = user.components;
 
-let Home = (props) => {
-  console.log('foo import:', foo);
-  return (
-    <div>
-      <Navigator />
-      <h1> Home </h1>
-      {store.getState().foo}
-      <FooDisplay />
-    </div>
-  );
-};
+
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    store.dispatch(user.actions.initUsers());
+    this.state = { users: safe(store.getState().user) };
+    this.unsubscribe = store.subscribe(() => {
+      this.setState({ users: safe(store.getState().user) });
+    });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+
+  render() {
+    console.log('user', user);
+    return (
+      <div>
+        <Navigator />
+        <h1> Home </h1>
+        <UserDisplay users={this.state.users} />
+      </div>
+    );
+  }
+}
 
 export default Home;

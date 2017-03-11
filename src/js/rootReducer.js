@@ -1,16 +1,16 @@
 'use strict';
 
 // import sub-reducers here:
-import fooReducer from '../modules/foo/reducer';
+import userReducer from '../modules/user/reducer';
 
 
 const initialState = {
-  foo: 'blah'
+  user: { /* id: { id: '', name: '', age: int } */ }
 };
 
 const rootReducer = (currentState = initialState, action) => {
   const state = {
-    foo: fooReducer(currentState.foo, action)
+    user: userReducer(currentState.user, action)
   };
   return state;
 };

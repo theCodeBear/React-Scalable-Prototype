@@ -5,9 +5,9 @@
 // out to the rest of the app
 
 
-import FooDisplay from './fooDisplay/fooDisplay.jsx';
+import UserDisplay from './userDisplay/userDisplay.jsx';
 
 
 export {
-  FooDisplay
+  UserDisplay
 };

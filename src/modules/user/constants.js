@@ -1,6 +1,6 @@
 'use strict';
 
-// CONSTANTS FOR MODULE foo
+// CONSTANTS FOR MODULE user
 
 
 
